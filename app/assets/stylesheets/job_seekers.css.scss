@@ -1,0 +1,77 @@
+// Place all the styles related to the JobSeekers controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+
+fieldset {
+  background-color: #E1E2DB;
+  width: 750px;
+  margin-top: 50px;
+  table {
+    display: block;
+    margin: auto;
+    tr {
+      td {
+        padding: 10px;
+      }
+    }
+  }
+}
+
+div#add-image-popup {
+  z-index:1;
+}
+
+div#profile-image {
+  float: left;
+  text-align: center;
+  ul { 
+    list-style :none;
+    margin-right :40px;
+    margin-top :25px;
+  }
+  img {
+    width: 200px;
+    height: 200px;
+  }
+}
+
+div#login {
+  float:left; 
+  width:50%;
+}
+
+.error-notice {
+  color:red;
+  border: 2px solid red;
+}
+
+div#login {
+  border-right: 2px solid #e1e2e3;
+  margin-right: 20px;
+}
+
+div#not_login {
+  width: 500px;
+  height: 125px;
+  border: 2px solid red;
+  background-color: #F99;
+}
+
+.error_notice {
+  border:2px solid red;
+  background-color: rosybrown;
+}
+
+div#notice{ 
+  width: 350px;
+  margin:auto;
+  background-color :greenyellow;
+  padding-top: 25px;
+  height: 70px;
+}
+
+div#logged_in_holder {
+  float: right;
+  font-weight: bold;
+  font-size: 15px;
+}

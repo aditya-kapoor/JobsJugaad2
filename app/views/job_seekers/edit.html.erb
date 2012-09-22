@@ -1,0 +1,79 @@
+<%= form_for(@job_seeker, :html => { :multipart => true }) do |post_form| %>
+  <% if @job_seeker.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@job_seeker.errors.count, "error") %> prohibited the details from being saved:</h2>
+    </div>
+  <% end %>
+  <fieldset><legend>Editing Profile</legend>
+  <div id="form">
+    <table id="edit_table">
+      <tr>
+        <td><%= post_form.label :name %></td>
+        <td><%= post_form.text_field :name %></td>
+          <% unless error_present?(:name, @job_seeker) %>
+            <td class="error_notice"><%= get_errors(:name, @job_seeker) %></td>
+          <% end %>
+      </tr>
+      <tr>
+        <td><%= post_form.label :gender %></td>
+        <td><%= post_form.select :gender, [["Male","Male"], ["Female", "Female"], ["Others", "Others"]]%></td>
+        <% unless error_present?(:gender, @job_seeker) %>
+            <td class="error_notice"><%= get_errors(:gender, @job_seeker) %></td>
+        <% end %>
+      </tr>
+      <tr>
+        <td><%= post_form.label :date_of_birth %></td>
+        <td><%= post_form.date_select :date_of_birth, :start_year => 1962, :end_year => Time.now.year - 16, :order => [:day, :month, :year] %></td>
+      </tr>
+      <tr>
+        <td><%= post_form.label :email %></td>
+        <td><%= @job_seeker.email %></td>
+          <% unless error_present?(:email, @job_seeker) %>
+              <td class="error_notice"><%= get_errors(:email, @job_seeker) %></td>
+          <% end %>
+        </tr>
+      <tr>
+        <td><%= post_form.label :location %></td>
+        <td><%= post_form.text_field :location %></td>
+      </tr>
+      <tr>
+        <td><%= post_form.label :mobile_number %></td>
+        <td><%= post_form.text_field :mobile_number %></td>
+        <% unless error_present?(:mobile_number, @job_seeker) %>
+          <td class="error_notice"><%= get_errors(:mobile_number, @job_seeker) %></td>
+        <% end %>
+      </tr>
+      <tr>
+        <td><%= post_form.label :experience %> (in years):</td>
+        <td><%= post_form.text_field :experience %></td>
+      </tr>
+      <tr>
+        <td><%= post_form.label :industry %></td>
+        <td><%= post_form.text_field :industry %></td>
+      </tr>
+      <tr>
+        <td><%= post_form.label :key_skills %></td>
+        <td><%= post_form.text_field :key_skills %></td>
+      </tr>
+      <tr>
+        <td>Profile Image: </td>
+        <td><%= post_form.file_field :photo %></td>
+        <% unless error_present?(:photo, @job_seeker) %>
+          <td class="error_notice"><%= get_errors(:photo, @job_seeker) %></td>
+        <% end %>
+      </tr>
+      <tr>
+        <td>Resume: </td>
+        <td><%= post_form.file_field :resume %></td>
+        <% unless error_present?(:resume_file_name, @job_seeker) %>
+          <td class="error_notice"><%= get_errors(:resume_file_name, @job_seeker) %></td>
+        <% end %>
+      </tr>
+      <tr>
+        <td><%= post_form.submit "Update Profile" %></td>
+      </tr>
+    </table>
+    <%= link_to 'Back to Profile', profile_path %>
+  </div>
+  </fieldset>
+<% end %>
